@@ -15,7 +15,7 @@ module ::MItamae
         private
 
         def set_current_attributes(current, action)
-          result = run_command("osascript -e 'tell application \"System Events\" to get the name of every login item' | awk -F ', ' '{for (i=1; i<=NF; i++) print($i)}' | grep '^#{attributes.name}'", error: false)
+          result = run_command("osascript -e 'tell application \"System Events\" to get the name of every login item' | awk -F ', ' '{for (i=1; i<=NF; i++) print($i)}' | grep '^#{attributes.name}'")
           current.exist = (result.exit_status == 0)
         end
 
